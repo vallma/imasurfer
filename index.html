@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>I'm a Surfer — Racks for boards that chase swell</title>
+<meta name="description" content="Wall mounts, floor racks and roof systems that take a surfboard and a snowboard. Marine-grade steel, cork padding, anchors in the box. Free shipping over 90€.">
+<meta name="theme-color" content="#0a1412">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="I'm a Surfer">
+<meta property="og:title" content="I'm a Surfer — Racks for boards that chase swell">
+<meta property="og:description" content="Wall mounts, floor racks and roof systems that take a surfboard and a snowboard. One rack, both seasons.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,500;112,600;112,700;112,800&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a>
+
+<!-- ================= ANNOUNCE ================= -->
+<div class="announce">
+  <span data-en="Free shipping over 90€" data-es="Envío gratis a partir de 90 €">Free shipping over 90€</span>
+  <span class="announce-sep">·</span>
+  <b data-surf-en="Season 02 — The Salt Line" data-surf-es="Temporada 02 — La línea Salt"
+     data-snow-en="Season 02 — The Snow Line" data-snow-es="Temporada 02 — La línea Snow">Season 02 — The Salt Line</b>
+  <span class="announce-sep">·</span>
+  <span data-en="30-day returns" data-es="Devoluciones en 30 días">30-day returns</span>
+</div>
+
+<!-- ================= NAV ================= -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M12 4c5 6 5 24 0 32-5-8-5-26 0-32z" stroke="var(--acc)" stroke-width="1.7" stroke-linejoin="round"/>
+        <rect x="22" y="5" width="9" height="30" rx="4.5" stroke="var(--sec)" stroke-width="1.7"/>
+        <path d="M24.5 14h4M24.5 26h4" stroke="var(--sec)" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text"><b data-surf-en="I'm a Surfer" data-surf-es="I'm a Surfer" data-snow-en="I'm a Snowboarder" data-snow-es="I'm a Snowboarder">I'm a Surfer</b><span>Two seasons, one wall</span></span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#top" class="active" data-en="Home" data-es="Inicio">Home</a>
+      <a href="#shop" data-cat="all" data-en="Shop all" data-es="Ver todo">Shop all</a>
+      <a href="#shop" data-cat="wall" data-en="Wall" data-es="Pared">Wall</a>
+      <a href="#shop" data-cat="stand" data-en="Stands" data-es="Suelo">Stands</a>
+      <a href="#shop" data-cat="travel" data-en="Transport" data-es="Transporte">Transport</a>
+      <a href="#story" data-en="Our story" data-es="Quiénes somos">Our story</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="switch" role="group" aria-label="Season">
+        <span class="switch-pill" aria-hidden="true"></span>
+        <button type="button" class="on" data-mood-btn="surf" aria-pressed="true">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 17c2.6-2.2 5.2-2.2 7.8 0s5.2 2.2 7.8 0 4.4-1.6 6.4-.4"/><path d="M4 12c3-4.6 8-7.6 14-8-1 6-4 10-8.6 12"/></svg>
+          Surf
+        </button>
+        <button type="button" data-mood-btn="snow" aria-pressed="false">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20l6.5-11L14 16l2.5-4L21 20z"/><path d="M9.5 9l2 3.4"/></svg>
+          Snow
+        </button>
+      </div>
+
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="on" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+
+      <button class="cart-btn" id="cartBtn">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.4l2.2 11.2A2 2 0 008.6 16h9.1a2 2 0 002-1.6L21 7H6"/><circle cx="9.5" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg>
+        <span class="lbl" data-en="Cart" data-es="Cesta">Cart</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <!-- SURF scene: dusk sky, low sun, three wave ridges -->
+  <div class="scene on" id="sceneSurf">
+    <div class="sky"></div>
+    <div class="sun"></div>
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 150c120-26 240 22 360 26s240-40 360-38 240 44 360 40 240-42 360-38v270H0z" fill="#0d3b46" opacity=".55"/>
+      <path d="M0 196c140-30 260 18 390 26s250-32 380-26 250 36 380 22 200-28 290-26v208H0z" fill="#0a2a33" opacity=".8"/>
+      <path d="M0 244c150-22 280 14 420 20s260-22 400-14 250 24 380 12 160-14 240-12v250H0z" fill="#0a1412"/>
+    </svg>
+  </div>
+
+  <!-- SNOW scene: whiteout sky, pale sun, three ridgelines -->
+  <div class="scene" id="sceneSnow">
+    <div class="sky"></div>
+    <div class="sun"></div>
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 210l210-130 130 82 150-108 190 140 180-96 200 118 180-62v246H0z" fill="#7ea7cd" opacity=".9"/>
+      <path d="M0 248l260-98 170 66 190-78 210 92 200-56 210 74v252H0z" fill="#a8c7e2"/>
+      <path d="M0 286l300-58 250 40 260-34 320 46 310-36v256H0z" fill="#d3e2ef"/>
+    </svg>
+  </div>
+
+  <div class="scrim"></div>
+  <div class="flecks" id="flecks" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <span class="hero-badge"><i></i>
+      <span data-surf-en="Season 02 · The Salt Line" data-surf-es="Temporada 02 · La línea Salt"
+            data-snow-en="Season 02 · The Snow Line" data-snow-es="Temporada 02 · La línea Snow">Season 02 · The Salt Line</span>
+    </span>
+
+    <h1>
+      <span data-en="Racks for boards that" data-es="Soportes para tablas que">Racks for boards that</span>
+      <em data-surf-en="chase swell." data-surf-es="persiguen olas."
+          data-snow-en="chase powder." data-snow-es="persiguen nieve.">chase swell.</em>
+    </h1>
+
+    <p class="hero-sub"
+       data-surf-en="Wall mounts, floor racks and roof systems built for salt, wet leashes and sand in everything. Marine-grade steel, cork padding, anchors in the box."
+       data-surf-es="Soportes de pared, racks de suelo y sistemas de techo hechos para la sal, los inventos mojados y la arena por todas partes. Acero marino, acolchado de corcho y tacos incluidos."
+       data-snow-en="Wall mounts, floor racks and roof systems built for meltwater, steel edges and boots that drip all evening. Marine-grade steel, cork padding, anchors in the box."
+       data-snow-es="Soportes de pared, racks de suelo y sistemas de techo hechos para el deshielo, los cantos de acero y las botas que gotean toda la tarde. Acero marino, acolchado de corcho y tacos incluidos.">Wall mounts, floor racks and roof systems built for salt, wet leashes and sand in everything. Marine-grade steel, cork padding, anchors in the box.</p>
+
+    <div class="hero-cta">
+      <a href="#shop" class="btn btn-primary">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.4l2.2 11.2A2 2 0 008.6 16h9.1a2 2 0 002-1.6L21 7H6"/><circle cx="9.5" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg>
+        <span data-en="Shop the racks" data-es="Ver los soportes">Shop the racks</span>
+      </a>
+      <a href="#story" class="btn btn-ghost" data-en="Our story" data-es="Quiénes somos">Our story</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-chip">
+        <span class="tc-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 4h14v12H1zM15 9h4l4 4v3h-8z"/><circle cx="5.5" cy="18.5" r="2.2"/><circle cx="18.5" cy="18.5" r="2.2"/></svg></span>
+        <div><b data-en="Free ship 90€+" data-es="Envío gratis +90 €">Free ship 90€+</b><span data-en="Spain &amp; EU" data-es="España y UE">Spain &amp; EU</span></div>
+      </div>
+      <div class="trust-chip">
+        <span class="tc-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 103-6.7L3 8"/><path d="M3 3v5h5"/></svg></span>
+        <div><b data-en="30-day returns" data-es="30 días para devolver">30-day returns</b><span data-en="Drilled or not" data-es="Taladrado o no">Drilled or not</span></div>
+      </div>
+      <div class="trust-chip">
+        <span class="tc-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7l-8-4-8 4v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
+        <div><b data-en="5-year warranty" data-es="5 años de garantía">5-year warranty</b><span data-en="On every weld" data-es="En cada soldadura">On every weld</span></div>
+      </div>
+      <div class="trust-chip">
+        <span class="tc-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5"/><path d="M5 8v11h14V8"/></svg></span>
+        <div><b data-en="Anchors included" data-es="Tacos incluidos">Anchors included</b><span data-en="Brick, block, plaster" data-es="Ladrillo, bloque, pladur">Brick, block, plaster</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="cats">
+  <div class="wrap">
+    <h2 class="sr-only" data-en="Shop by category" data-es="Compra por categoría">Shop by category</h2>
+    <div class="cats-grid">
+      <div class="ccard rv" data-jump="wall">
+        <div class="ccard-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3z"/><path d="M3 10h18M9 4v6M15 10v10"/></svg></div>
+        <h3 data-en="Wall mounts" data-es="Soportes de pared">Wall mounts</h3>
+        <p data-en="Ala 01: two cork-lined arms, 15cm of wall, and a span you set wide for a longboard or narrow for a twin. Holds a 3kg fish or a 4kg freeride deck without a mark."
+           data-es="Ala 01: dos brazos forrados de corcho, 15 cm de pared y una separación que abres para una longboard o cierras para una twin. Sujeta un fish de 3 kg o una freeride de 4 kg sin dejar marca.">Ala 01: two cork-lined arms, 15cm of wall, and a span you set wide for a longboard or narrow for a twin. Holds a 3kg fish or a 4kg freeride deck without a mark.</p>
+        <span class="go"><span data-en="Shop wall" data-es="Ver pared">Shop wall</span> →</span>
+      </div>
+      <div class="ccard rv" data-jump="stand">
+        <div class="ccard-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v14"/><path d="M5 21l7-6 7 6"/><path d="M8 7h8"/></svg></div>
+        <h3 data-en="Stands &amp; benches" data-es="Racks y bancos">Stands &amp; benches</h3>
+        <p data-en="Tótem: a free-standing column for four boards, with a weighted cross base that does not tip. For rented flats and anywhere a drill means asking the landlord."
+           data-es="Tótem: una columna de pie para cuatro tablas, con base en cruz lastrada que no vuelca. Para pisos de alquiler y para cualquier sitio donde taladrar signifique pedir permiso al casero.">Tótem: a free-standing column for four boards, with a weighted cross base that does not tip. For rented flats and anywhere a drill means asking the landlord.</p>
+        <span class="go"><span data-en="Shop stands" data-es="Ver racks">Shop stands</span> →</span>
+      </div>
+      <div class="ccard rv" data-jump="travel">
+        <div class="ccard-ic"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 16h20"/><path d="M4 16l2-6h12l2 6"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M3 9h18"/></svg></div>
+        <h3 data-en="Roof &amp; transport" data-es="Techo y transporte">Roof &amp; transport</h3>
+        <p data-en="Roof Two: a pair of 45cm pads and two 3.5m straps with padded buckles, for the drive to the coast and the drive to the pass."
+           data-es="Roof Two: una pareja de almohadillas de 45 cm y dos correas de 3,5 m con hebillas acolchadas, para bajar a la costa y para subir al puerto.">Roof Two: a pair of 45cm pads and two 3.5m straps with padded buckles, for the drive to the coast and the drive to the pass.</p>
+        <span class="go"><span data-en="Shop transport" data-es="Ver transporte">Shop transport</span> →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP ================= -->
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow" data-en="The collection" data-es="La colección">The collection</span>
+      <h2 data-en="Three racks, both seasons" data-es="Tres soportes, las dos temporadas">Three racks, both seasons</h2>
+      <p data-en="We make three, and each one takes a surfboard and a snowboard — same arms, same anchors, different foam spacing. One for the wall, one for the floor, one for the roof of the car."
+         data-es="Hacemos tres, y cada uno admite tabla de surf y de snow: mismos brazos, mismos tacos, distinto espaciado de la espuma. Uno para la pared, uno para el suelo y uno para el techo del coche.">We make three, and each one takes a surfboard and a snowboard — same arms, same anchors, different foam spacing. One for the wall, one for the floor, one for the roof of the car.</p>
+    </div>
+
+    <div class="filters rv">
+      <div class="chips" id="chips">
+        <button class="chip on" data-cat="all" data-en="All" data-es="Todo">All</button>
+        <button class="chip" data-cat="wall" data-en="Wall mounts" data-es="Pared">Wall mounts</button>
+        <button class="chip" data-cat="stand" data-en="Stands &amp; benches" data-es="Racks y bancos">Stands &amp; benches</button>
+        <button class="chip" data-cat="travel" data-en="Roof &amp; transport" data-es="Techo y transporte">Roof &amp; transport</button>
+      </div>
+      <div class="filter-right">
+        <div class="search">
+          <svg class="icon icon-sm search-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+          <input type="text" id="searchInput" autocomplete="off" inputmode="search"
+                 data-ph-en="Search the shop" data-ph-es="Buscar en la tienda"
+                 placeholder="Search the shop" aria-label="Search products">
+          <button class="search-clear" id="searchClear" type="button" aria-label="Clear search" hidden>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <span class="result-count" id="resultCount"></span>
+        <select class="sel" id="sortSel" aria-label="Sort">
+          <option value="featured" data-en="Featured" data-es="Destacados">Featured</option>
+          <option value="low" data-en="Price: low to high" data-es="Precio: de menor a mayor">Price: low to high</option>
+          <option value="high" data-en="Price: high to low" data-es="Precio: de mayor a menor">Price: high to low</option>
+          <option value="name" data-en="Name A–Z" data-es="Nombre A–Z">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pgrid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= BAND ================= -->
+<div class="band">
+  <div class="wrap">
+    <h3 data-en="— WAX IT. RIDE IT. HANG IT. —" data-es="— ENCÉRALA. RÍDALA. CUÉLGALA. —">— WAX IT. RIDE IT. HANG IT. —</h3>
+    <p data-surf-en="A board on the floor is a board with a cracked rail by September."
+       data-surf-es="Una tabla en el suelo es una tabla con el canto roto en septiembre."
+       data-snow-en="A board on the floor is a board with a rusted edge by November."
+       data-snow-es="Una tabla en el suelo es una tabla con el canto oxidado en noviembre.">A board on the floor is a board with a cracked rail by September.</p>
+  </div>
+</div>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow" data-en="From the garage" data-es="Desde el garaje">From the garage</span>
+      <h2 data-en="535 racks, three designs" data-es="535 soportes, tres diseños">535 racks, three designs</h2>
+      <p data-en="Verified buyers who actually drilled the holes." data-es="Compradores verificados que de verdad hicieron los agujeros.">Verified buyers who actually drilled the holes.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev rv">
+        <span class="s">★★★★★</span>
+        <p data-en="&ldquo;Three Ala 01s over the workbench: two shortboards and a 9'2 in summer, a splitboard and a swallowtail the rest of the year. The cork hasn't marked a single rail.&rdquo;"
+           data-es="«Tres Ala 01 sobre el banco: dos shortboards y una 9'2 en verano, una splitboard y una swallowtail el resto del año. El corcho no ha marcado ni un canto.»">&ldquo;Three Ala 01s over the workbench: two shortboards and a 9'2 in summer, a splitboard and a swallowtail the rest of the year. The cork hasn't marked a single rail.&rdquo;</p>
+        <div class="rev-who"><span class="rev-av">NB</span><div><b>Nil B.</b><span data-en="Surf + split, Girona" data-es="Surf y split, Girona">Surf + split, Girona</span></div></div>
+      </div>
+      <div class="rev rv">
+        <span class="s">★★★★★</span>
+        <p data-en="&ldquo;Roof Two carried a 165 freeride and a 158 twin from Cadaqués to Grandvalira, then two shortboards back down in April. Nothing moved, nothing buzzed at 110.&rdquo;"
+           data-es="«El Roof Two llevó una freeride de 165 y una twin de 158 de Cadaqués a Grandvalira, y dos shortboards de vuelta en abril. No se movió nada, no vibró nada a 110.»">&ldquo;Roof Two carried a 165 freeride and a 158 twin from Cadaqués to Grandvalira, then two shortboards back down in April. Nothing moved, nothing buzzed at 110.&rdquo;</p>
+        <div class="rev-who"><span class="rev-av">MC</span><div><b>Marta C.</b><span data-en="Van life, Empordà" data-es="Vanlife, Empordà">Van life, Empordà</span></div></div>
+      </div>
+      <div class="rev rv">
+        <span class="s">★★★★★</span>
+        <p data-en="&ldquo;Four Tótems on the shop floor, sixteen boards, not one hole in a rented wall. Six months of salt air coming through the door and zero rust on the bases.&rdquo;"
+           data-es="«Cuatro Tótems en la tienda, dieciséis tablas y ni un agujero en una pared de alquiler. Seis meses de aire salado entrando por la puerta y cero óxido en las bases.»">&ldquo;Four Tótems on the shop floor, sixteen boards, not one hole in a rented wall. Six months of salt air coming through the door and zero rust on the bases.&rdquo;</p>
+        <div class="rev-who"><span class="rev-av">JR</span><div><b>Jordi R.</b><span data-en="Board shop owner" data-es="Dueño de tienda">Board shop owner</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section class="section section-dark" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="rv">
+        <span class="eyebrow" data-en="Our story" data-es="Quiénes somos">Our story</span>
+        <h2 data-en="Two seasons, one garage." data-es="Dos temporadas, un garaje.">Two seasons, one garage.</h2>
+        <p data-en="We live two hours from a reef break and two hours from a chairlift. For years that meant a garage with boards leaning against every wall, waxed rails against bare concrete, and one of them getting stepped on every November."
+           data-es="Vivimos a dos horas de un pico de arrecife y a dos horas de un telesilla. Durante años eso significó un garaje con tablas apoyadas en todas las paredes, cantos encerados contra el hormigón y una pisada cada noviembre.">We live two hours from a reef break and two hours from a chairlift. For years that meant a garage with boards leaning against every wall, waxed rails against bare concrete, and one of them getting stepped on every November.</p>
+        <p data-en="Every rack we could buy was made for one sport. Surf racks too shallow for a snowboard's waist, ski racks that crushed a surfboard's rail. So we welded our own out of 3mm marine steel and lined the arms with cork. Neighbours asked for one. Then their shops did."
+           data-es="Todos los soportes que podíamos comprar estaban hechos para un solo deporte. Racks de surf demasiado estrechos para la cintura de una tabla de snow, racks de esquí que aplastaban el canto de una de surf. Así que soldamos los nuestros en acero marino de 3 mm y forramos los brazos con corcho. Los vecinos nos pidieron uno. Después, sus tiendas.">Every rack we could buy was made for one sport. Surf racks too shallow for a snowboard's waist, ski racks that crushed a surfboard's rail. So we welded our own out of 3mm marine steel and lined the arms with cork. Neighbours asked for one. Then their shops did.</p>
+        <div class="pledge">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-5 8-11a8 8 0 10-16 0c0 6 8 11 8 11z"/><path d="M12 12V8M9.5 10.5L12 8l2.5 2.5"/></svg>
+          <span data-en="Cut, welded and powder-coated in Catalonia. The cork comes from Palafrugell, 60km from the workshop."
+                data-es="Cortado, soldado y pintado en polvo en Cataluña. El corcho viene de Palafrugell, a 60 km del taller.">Cut, welded and powder-coated in Catalonia. The cork comes from Palafrugell, 60km from the workshop.</span>
+        </div>
+        <a href="#shop" class="btn btn-primary" style="margin-top:26px" data-en="Shop the collection" data-es="Ver la colección">Shop the collection</a>
+      </div>
+
+      <div class="story-visual rv">
+        <svg viewBox="0 0 420 320" aria-hidden="true">
+          <rect width="420" height="320" fill="none"/>
+          <!-- wall line + two mounted boards, one of each -->
+          <path d="M40 46h340M40 274h340" stroke="var(--art-b)" stroke-width="1.6" opacity=".35"/>
+          <g stroke="var(--art-a)" stroke-width="2.6" fill="none" stroke-linejoin="round">
+            <path d="M92 92c26 34 26 106 0 140-26-34-26-106 0-140z"/>
+            <path d="M92 108v108" stroke-width="1.4" opacity=".55"/>
+          </g>
+          <g stroke="var(--art-b)" stroke-width="2.6" fill="none">
+            <rect x="168" y="86" width="44" height="152" rx="22"/>
+            <path d="M178 124h24M178 200h24" stroke-width="1.6" opacity=".7"/>
+          </g>
+          <g stroke="var(--art-a)" stroke-width="2.6" fill="none" stroke-linejoin="round">
+            <path d="M300 88c22 30 30 100 12 150-30-30-34-110-12-150z"/>
+          </g>
+          <!-- rack arms -->
+          <g stroke="var(--art-b)" stroke-width="3" stroke-linecap="round" opacity=".8">
+            <path d="M62 150h60M62 150v14M338 150h-60M338 150v14"/>
+          </g>
+          <text x="210" y="300" text-anchor="middle" fill="var(--art-b)" font-family="Martian Mono,monospace" font-size="11" letter-spacing="3">TWO SEASONS · ONE WALL</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="news rv">
+      <span class="eyebrow" data-en="Season alerts" data-es="Avisos de temporada">Season alerts</span>
+      <h2 style="font-size:clamp(1.7rem,4vw,2.5rem);margin-bottom:12px"
+          data-en="Get the next season first" data-es="Recibe la próxima temporada primero">Get the next season first</h2>
+      <p style="color:var(--ink-3)" data-en="Two emails a year: one when the swell racks land, one before the lifts open. 10% off your first order."
+         data-es="Dos emails al año: uno cuando llegan los racks de olas, otro antes de que abran los remontes. 10% en tu primer pedido.">Two emails a year: one when the swell racks land, one before the lifts open. 10% off your first order.</p>
+      <form id="newsForm">
+        <label class="sr-only" for="newsEmail" data-en="Your email address" data-es="Tu dirección de email">Your email address</label>
+        <input type="email" id="newsEmail" required placeholder="tu@email.com">
+        <button type="submit" class="btn btn-primary" data-en="Sign up" data-es="Apuntarme">Sign up</button>
+      </form>
+      <small data-en="No spam. Unsubscribe any time." data-es="Sin spam. Cancela cuando quieras.">No spam. Unsubscribe any time.</small>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#top" class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M12 4c5 6 5 24 0 32-5-8-5-26 0-32z" stroke="var(--acc)" stroke-width="1.7" stroke-linejoin="round"/>
+            <rect x="22" y="5" width="9" height="30" rx="4.5" stroke="var(--sec)" stroke-width="1.7"/>
+            <path d="M24.5 14h4M24.5 26h4" stroke="var(--sec)" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-text"><b data-surf-en="I'm a Surfer" data-surf-es="I'm a Surfer" data-snow-en="I'm a Snowboarder" data-snow-es="I'm a Snowboarder">I'm a Surfer</b><span>Two seasons, one wall</span></span>
+        </a>
+        <p data-en="Racks and mounts for people whose year has two halves." data-es="Soportes para gente cuyo año tiene dos mitades.">Racks and mounts for people whose year has two halves.</p>
+      </div>
+      <div>
+        <h2 class="foot-h" data-en="Shop" data-es="Tienda">Shop</h2>
+        <ul>
+          <li><a href="#shop" data-jump="all" data-en="Shop all" data-es="Ver todo">Shop all</a></li>
+          <li><a href="#shop" data-jump="wall" data-en="Wall mounts" data-es="Soportes de pared">Wall mounts</a></li>
+          <li><a href="#shop" data-jump="stand" data-en="Stands &amp; benches" data-es="Racks y bancos">Stands &amp; benches</a></li>
+          <li><a href="#shop" data-jump="travel" data-en="Roof &amp; transport" data-es="Techo y transporte">Roof &amp; transport</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h" data-en="Help" data-es="Ayuda">Help</h2>
+        <ul>
+          <li><a href="#shop" data-en="Fitting guide" data-es="Guía de montaje">Fitting guide</a></li>
+          <li><a href="#shop" data-en="Shipping" data-es="Envíos">Shipping</a></li>
+          <li><a href="#shop" data-en="Returns" data-es="Devoluciones">Returns</a></li>
+          <li><a href="#shop" data-en="Warranty" data-es="Garantía">Warranty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h" data-en="Workshop" data-es="Taller">Workshop</h2>
+        <ul class="footer-contact">
+          <li><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 6 10-6"/></svg><span>hola@imasurfer.com</span></li>
+          <li><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg><span>@imasurfer</span></li>
+          <li><a href="#story" data-en="Our story" data-es="Quiénes somos">Our story</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-en="© 2026 I’m a Surfer. All rights reserved." data-es="© 2026 I’m a Surfer. Todos los derechos reservados.">© 2026 Salt &amp; Snow. All rights reserved.</span>
+      <div class="footer-badges">
+        <span data-en="Free ship 90€+" data-es="Envío gratis +90 €">Free ship 90€+</span>
+        <span data-en="30-day returns" data-es="Devoluciones 30 días">30-day returns</span>
+        <span data-en="Made in Catalonia" data-es="Hecho en Cataluña">Made in Catalonia</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= RIDER RAIL ================= -->
+<div class="rail" aria-hidden="true"><span class="rail-cap" id="railCap"></span></div>
+<div class="readout" aria-hidden="true">
+  <b id="readVal">0</b>
+  <span id="readLbl">m ridden</span>
+</div>
+<div class="rider" id="rider" aria-hidden="true">
+  <svg class="m-surf" viewBox="0 0 60 60" fill="none">
+    <path d="M6 44c14 6 34 6 48-4" stroke="var(--acc)" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M18 42c8-4 20-4 26-10" stroke="var(--acc)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="30" cy="16" r="5" stroke="var(--ink)" stroke-width="2.2"/>
+    <path d="M30 21v11M30 24l-8-3M30 24l8-5M30 32l-5 8M30 32l6 7" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+  <svg class="m-snow" viewBox="0 0 60 60" fill="none">
+    <rect x="10" y="40" width="42" height="7" rx="3.5" transform="rotate(-12 10 40)" stroke="var(--acc)" stroke-width="2.4"/>
+    <circle cx="30" cy="14" r="5" stroke="var(--ink)" stroke-width="2.2"/>
+    <path d="M30 19v12M30 23l-9 1M30 23l9-4M30 31l-6 8M30 31l7 7" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="drawer-head">
+    <h3><span data-en="Your cart" data-es="Tu cesta">Your cart</span> (<span id="drawerCount">0</span>)</h3>
+    <button class="x" id="drawerClose" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="ship-bar">
+    <p id="shipMsg"></p>
+    <div class="ship-track"><div class="ship-fill" id="shipFill"></div></div>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot" hidden>
+    <div class="sub"><span data-en="Subtotal" data-es="Subtotal">Subtotal</span><b id="subtotal">0€</b></div>
+    <p class="sub-note" data-en="Shipping &amp; taxes calculated at checkout" data-es="Envío e impuestos calculados en el pago">Shipping &amp; taxes calculated at checkout</p>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <span data-en="Checkout" data-es="Finalizar compra">Checkout</span> · <span id="checkoutTotal">0€</span>
+    </button>
+    <p class="secure" data-en="Secure checkout · 30-day returns" data-es="Pago seguro · 30 días para devolver">Secure checkout · 30-day returns</p>
+  </div>
+</aside>
+
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mName">
+  <div class="modal-card">
+    <div class="m-media" id="mMedia"></div>
+    <div class="m-body">
+      <button class="m-close" id="mClose" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <div class="p-cat" id="mCat"></div>
+      <h2 id="mName"></h2>
+      <p class="m-tag" id="mTag"></p>
+      <div class="m-price"><span class="p-now" id="mNow"></span><span class="p-was" id="mWas"></span></div>
+      <p class="m-desc" id="mDesc"></p>
+      <p class="p-fit" id="mFit" style="margin-bottom:16px"></p>
+      <div id="mStock"></div>
+      <div id="mFinWrap" hidden>
+        <span class="opt-label" data-en="Finish" data-es="Acabado">Finish</span>
+        <div class="fins" id="mFins"></div>
+      </div>
+      <button class="btn btn-primary btn-block" id="mAdd">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2.4l2.2 11.2A2 2 0 008.6 16h9.1a2 2 0 002-1.6L21 7H6"/><circle cx="9.5" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg>
+        <span data-en="Add to cart" data-es="Añadir a la cesta">Add to cart</span>
+      </button>
+      <ul class="specs" id="mSpecs"></ul>
+      <div class="m-trust">
+        <div><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 4h14v12H1zM15 9h4l4 4v3h-8z"/><circle cx="5.5" cy="18.5" r="2.2"/><circle cx="18.5" cy="18.5" r="2.2"/></svg><b data-en="Free ship" data-es="Envío gratis">Free ship</b><span data-en="orders 90€+" data-es="pedidos +90 €">orders 90€+</span></div>
+        <div><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 103-6.7L3 8"/><path d="M3 3v5h5"/></svg><b>30<span data-en=" days" data-es=" días"> days</span></b><span data-en="returns" data-es="devoluciones">returns</span></div>
+        <div><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><b data-en="Secure" data-es="Pago">Secure</b><span data-en="checkout" data-es="seguro">checkout</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg"></span></div>
+
+<script src="/catalog.js" defer></script>
+<script src="/app.js" defer></script>
+</body>
+</html>
