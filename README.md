@@ -1,7 +1,10 @@
 # I'm a Surfer
 
-Landing page for board racks that hold **both** a surfboard and a snowboard.
-One button switches the whole site between two seasons:
+Shop window for **Coffiesurf** — handmade plywood board racks, made in
+Barcelona and sold on [Etsy](https://www.etsy.com/es/shop/Coffiesurf).
+
+One button switches the whole site between two seasons, because the same
+rack holds a surfboard, a snowboard, a wakeboard or a kite board:
 
 | | SURF | SNOW |
 |---|---|---|
@@ -13,16 +16,19 @@ One button switches the whole site between two seasons:
 
 Bilingual EN / ES throughout, with a second switch in the navbar.
 
+**The cart is a demo.** It adds up, it remembers what you put in it, and
+then it tells you the real orders go through Etsy. Nothing is charged.
+
 ## Stack
 
-No build step, no dependencies. Static HTML, CSS and vanilla JS — open
-`index.html` or serve the folder and it runs.
+No build step, no dependencies. Static HTML, CSS and vanilla JS — serve
+the folder and it runs.
 
 ```
 index.html    markup: nav, hero, categories, shop, reviews, story, footer,
               cart drawer, product modal
 styles.css    design tokens per season + every component
-catalog.js    the 3 products and their inline SVG artwork -> window.IAS
+catalog.js    the 7 live listings and their line drawings -> window.IAS
 app.js        season switch, EN/ES copy, filters, modal, cart, scroll rider
 favicon.svg
 ```
@@ -37,26 +43,33 @@ python3 -m http.server 8000
 Paths are relative, so the site also works from a subfolder — which is
 what GitHub Pages serves it from.
 
-## Editing the catalogue
+## The catalogue
 
-Everything lives in `catalog.js`. A product looks like this:
+`catalog.js` mirrors the Etsy shop. A product looks like this:
 
 ```js
-{ id:'ala-01', cat:'wall', art:'wallSingle', price:39, was:49, rev:214,
-  best:true, fin:['oak','black'],
-  n:'Ala 01',
-  fit:{ en:"Surf 5'0–9'6 · Snow 138–168cm", es:"Surf 5'0–9'6 · Snow 138–168 cm" },
-  t:{ en:'One board. Six inches of wall.', es:'Una tabla. Quince centímetros de pared.' },
+{ id:'vertical-natural', cat:'vertical', art:'vertical', price:39, rev:5, best:true,
+  etsy:'4484059794', photo:'65092907/r/il/f142b3/7931927335/il_340x270.7931927335_5kqu.jpg',
+  n:{ en:'Vertical Wall Rack', es:'Soporte vertical de pared' },
+  fit:{ en:'Surf · snow · wake · kite', es:'Surf · snow · wake · kite' },
+  t:{ en:'Your board upright, on show.', es:'La tabla de pie, a la vista.' },
   d:{ en:'…', es:'…' },
-  s:{ en:['spec','spec'], es:['spec','spec'] } }
+  s:COMMON_SPECS }
 ```
 
-- `cat` is `wall`, `stand` or `travel` — the three filter chips.
-- `art` keys into the `A` map at the top of the file (inline SVG drawn with
-  the theme's `--art-a` / `--art-b` tokens, so it recolours with the season).
-- `was` renders a strikethrough price and a discount badge; `low` renders a
-  low-stock badge; `best` renders a best-seller badge.
-- `fin` lists the finishes offered in the product modal.
+- `cat` is `vertical`, `hooks` or `home` — the three filter chips.
+- `etsy` is the listing id; `listing(id)` builds the URL.
+- `photo` is the path after `i.etsystatic.com/`. The page swaps the size
+  segment (`il_340x270` → `il_794xN` on cards, `il_1140xN` in the modal).
+- `art` keys into the `A` map of line drawings at the top of the file.
+  **The drawing is the fallback**: the photo is layered over it and removes
+  itself if Etsy's CDN doesn't answer, so a card is never empty.
+- `best` renders a best-seller badge; `was` a strikethrough price and a
+  discount badge; `low` a low-stock badge.
+
+Shop-wide figures (shipping, exchange window, sales, rating) live in
+`SHIP` at the bottom of `catalog.js`, so the page can't drift from Etsy.
+Update them when the shop changes.
 
 ## Copy and translations
 
@@ -66,8 +79,3 @@ Text lives in the markup on data attributes, read by `applyCopy()` in `app.js`:
 - `data-surf-en` / `data-surf-es` / `data-snow-en` / `data-snow-es` — season
   specific, and they win over the plain pair when present.
 - `data-ph-en` / `data-ph-es` — input placeholders.
-
-## Status
-
-Demo content. Products, prices, reviews and the workshop address are
-placeholders; checkout is a toast, not a payment flow.

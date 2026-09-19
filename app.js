@@ -6,7 +6,8 @@
 (function(){
 'use strict';
 var IAS = window.IAS;
-var A = IAS.A, svg = IAS.svg, FIN = IAS.FIN, P = IAS.P, CATNAME = IAS.CATNAME, SHIP = IAS.SHIP;
+var A = IAS.A, svg = IAS.svg, P = IAS.P, CATNAME = IAS.CATNAME, SHIP = IAS.SHIP;
+var photo = IAS.photo, listing = IAS.listing, SHOP = IAS.SHOP;
 
 /* =========================================================
    STATE
@@ -14,11 +15,11 @@ var A = IAS.A, svg = IAS.svg, FIN = IAS.FIN, P = IAS.P, CATNAME = IAS.CATNAME, S
 var mood = 'surf', lang = 'en';
 var cat = 'all', q = '', sortBy = 'featured';
 var cart = [];      /* {id, fin, qty} */
-var current = null, currentFin = null;
+var current = null;
 
 var $ = function(s){ return document.querySelector(s); };
 var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
-function euro(n){ return n + '€'; }
+function euro(n){ return n + ' €'; }
 function L(o){ return o ? (o[lang] || o.en) : ''; }
 
 /* ---------- i18n + season copy ---------- */
@@ -74,22 +75,29 @@ function visible(){
   var list = P.filter(function(p){
     if (cat !== 'all' && p.cat !== cat) return false;
     if (!q) return true;
-    var hay = (p.n + ' ' + L(p.t) + ' ' + L(CATNAME[p.cat])).toLowerCase();
+    var hay = (L(p.n) + ' ' + L(p.t) + ' ' + L(CATNAME[p.cat])).toLowerCase();
     return hay.indexOf(q.toLowerCase()) > -1;
   });
   if (sortBy === 'low') list.sort(function(a,b){ return a.price - b.price; });
   else if (sortBy === 'high') list.sort(function(a,b){ return b.price - a.price; });
-  else if (sortBy === 'name') list.sort(function(a,b){ return a.n.localeCompare(b.n); });
+  else if (sortBy === 'name') list.sort(function(a,b){ return L(a.n).localeCompare(L(b.n)); });
   else list.sort(function(a,b){ return (b.best?1:0) - (a.best?1:0) || b.rev - a.rev; });
   return list;
+}
+/* The photo sits over the line drawing; if Etsy's CDN is blocked or the
+   listing photo moves, the drawing underneath is what the visitor sees. */
+function media(p, size){
+  return svg(p.art) +
+    (p.photo ? '<img class="p-photo" loading="lazy" alt="" src="' + photo(p.photo, size) +
+               '" onerror="this.remove()">' : '');
 }
 function render(){
   var list = visible(), g = $('#grid');
   $('#resultCount').textContent = list.length + (lang === 'en' ? ' items' : ' artículos');
   if (!list.length){
     g.innerHTML = '<div class="empty">' +
-      (lang === 'en' ? 'Nothing matches that. Try “wall”, “roof” or “wax”.'
-                     : 'Nada coincide. Prueba con «pared», «techo» o «wax».') + '</div>';
+      (lang === 'en' ? 'Nothing matches that. Try “vertical”, “hooks” or “shelf”.'
+                     : 'Nada coincide. Prueba con «vertical», «ganchos» o «estante».') + '</div>';
     return;
   }
   g.innerHTML = list.map(function(p){
@@ -98,15 +106,15 @@ function render(){
     if (p.was) tags += '<span class="tag sale">-' + Math.round((1 - p.price/p.was)*100) + '%</span>';
     if (p.low) tags += '<span class="tag low">' + (lang==='en'? p.low+' left' : 'Quedan '+p.low) + '</span>';
     return '<article class="pcard" data-id="' + p.id + '">' +
-      '<div class="p-media">' + svg(p.art) + '<div class="p-tags">' + tags + '</div></div>' +
+      '<div class="p-media">' + media(p) + '<div class="p-tags">' + tags + '</div></div>' +
       '<div class="p-info">' +
         '<span class="p-cat">' + L(CATNAME[p.cat]) + '</span>' +
-        '<h3>' + p.n + '</h3>' +
+        '<h3>' + L(p.n) + '</h3>' +
         '<p class="p-tag">' + L(p.t) + '</p>' +
         '<p class="p-fit">' + L(p.fit) + '</p>' +
         '<div class="p-foot">' +
           '<div class="p-price"><b>' + euro(p.price) + '</b>' + (p.was ? '<s>' + euro(p.was) + '</s>' : '') + '</div>' +
-          '<button class="p-add" data-add="' + p.id + '" aria-label="' + (lang==='en'?'Add ':'Añadir ') + p.n + '">' +
+          '<button class="p-add" data-add="' + p.id + '" aria-label="' + (lang==='en'?'Add ':'Añadir ') + L(p.n) + '">' +
             '<svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>' +
           '</button>' +
         '</div>' +
@@ -119,10 +127,9 @@ function openModal(id){
   var p = P.filter(function(x){ return x.id === id; })[0];
   if (!p) return;
   current = p;
-  currentFin = p.fin ? p.fin[0] : null;
-  $('#mMedia').innerHTML = svg(p.art);
+  $('#mMedia').innerHTML = media(p, 'il_1140xN');
   $('#mCat').textContent = L(CATNAME[p.cat]);
-  $('#mName').textContent = p.n;
+  $('#mName').textContent = L(p.n);
   $('#mTag').textContent = L(p.t);
   $('#mNow').textContent = euro(p.price);
   $('#mWas').textContent = p.was ? euro(p.was) : '';
@@ -130,15 +137,7 @@ function openModal(id){
   $('#mFit').textContent = L(p.fit);
   $('#mStock').innerHTML = p.low
     ? '<p class="stock low"><i></i>' + (lang==='en' ? 'Only ' + p.low + ' left in this run' : 'Solo quedan ' + p.low + ' de esta serie') + '</p>'
-    : '<p class="stock"><i></i>' + (lang==='en' ? 'In stock · ships in 1–2 working days' : 'En stock · sale en 1–2 días laborables') + '</p>';
-
-  var fw = $('#mFinWrap');
-  if (p.fin){
-    fw.hidden = false;
-    $('#mFins').innerHTML = p.fin.map(function(f,i){
-      return '<button class="fin' + (i===0?' on':'') + '" data-fin="' + f + '">' + L(FIN[f]) + '</button>';
-    }).join('');
-  } else { fw.hidden = true; }
+    : '<p class="stock"><i></i>' + (lang==='en' ? 'Made to order · ships from Spain' : 'Hecho por encargo · sale desde España') + '</p>';
 
   $('#mSpecs').innerHTML = (p.s ? L(p.s) : []).map(function(s){ return '<li>' + s + '</li>'; }).join('');
   $('#modal').classList.add('on');
@@ -153,15 +152,14 @@ function closeModal(){
 }
 
 /* ---------- cart ---------- */
-function add(id, fin){
+function add(id){
   var p = P.filter(function(x){ return x.id === id; })[0];
   if (!p) return;
-  var key = id + '|' + (fin || '');
-  var line = cart.filter(function(c){ return c.key === key; })[0];
+  var line = cart.filter(function(c){ return c.key === id; })[0];
   if (line) line.qty++;
-  else cart.push({ key:key, id:id, fin:fin || null, qty:1 });
+  else cart.push({ key:id, id:id, qty:1 });
   renderCart();
-  toast((lang==='en' ? 'Added — ' : 'Añadido — ') + p.n);
+  toast((lang==='en' ? 'Added — ' : 'Añadido — ') + L(p.n));
 }
 function renderCart(){
   var count = cart.reduce(function(s,c){ return s + c.qty; }, 0);
@@ -175,25 +173,23 @@ function renderCart(){
   $('#checkoutTotal').textContent = euro(total);
   $('#drawerFoot').hidden = count === 0;
 
-  var left = Math.max(0, SHIP.freeOver - total);
-  $('#shipMsg').innerHTML = left > 0
-    ? (lang==='en' ? 'Add <b>' + euro(left) + '</b> for free shipping' : 'Añade <b>' + euro(left) + '</b> y el envío es gratis')
-    : (lang==='en' ? 'Free shipping unlocked' : 'Envío gratis conseguido');
-  $('#shipFill').style.width = Math.min(100, (total / SHIP.freeOver) * 100) + '%';
+  $('#shipMsg').innerHTML = lang==='en'
+    ? 'Flat <b>' + euro(SHIP.flat) + '</b> shipping from Spain · exchanges within ' + SHIP.returns + ' days'
+    : 'Envío único de <b>' + euro(SHIP.flat) + '</b> desde España · cambios en ' + SHIP.returns + ' días';
 
   var body = $('#drawerBody');
   if (!cart.length){
     body.innerHTML = '<div class="cart-empty">' +
-      (lang==='en' ? 'Your cart is empty. Every rack here takes both of your boards.'
-                   : 'Tu cesta está vacía. Cada soporte de aquí admite tus dos tablas.') + '</div>';
+      (lang==='en' ? 'Your cart is empty. Everything here is handmade to order in Barcelona.'
+                   : 'Tu cesta está vacía. Todo lo de aquí se hace a mano por encargo en Barcelona.') + '</div>';
     return;
   }
   body.innerHTML = cart.map(function(c){
     var p = P.filter(function(x){ return x.id === c.id; })[0];
     return '<div class="citem">' +
-      '<div class="citem-img">' + svg(p.art) + '</div>' +
-      '<div class="citem-info"><b>' + p.n + '</b>' +
-        '<span>' + (c.fin ? L(FIN[c.fin]) : L(CATNAME[p.cat])) + '</span>' +
+      '<div class="citem-img">' + media(p, 'il_340x270') + '</div>' +
+      '<div class="citem-info"><b>' + L(p.n) + '</b>' +
+        '<span>' + L(CATNAME[p.cat]) + '</span>' +
         '<div class="qty">' +
           '<button data-q="-1" data-key="' + c.key + '" aria-label="-">' +
             '<svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>' +
@@ -245,7 +241,7 @@ document.addEventListener('click', function(e){
   if (langBtn){ setLang(langBtn.dataset.lang); return; }
 
   var addBtn = t.closest('[data-add]');
-  if (addBtn){ e.stopPropagation(); add(addBtn.dataset.add, null); return; }
+  if (addBtn){ e.stopPropagation(); add(addBtn.dataset.add); return; }
 
   var card = t.closest('.pcard');
   if (card){ openModal(card.dataset.id); return; }
@@ -269,13 +265,6 @@ document.addEventListener('click', function(e){
     return;
   }
 
-  var fin = t.closest('[data-fin]');
-  if (fin){
-    currentFin = fin.dataset.fin;
-    $$('.fin').forEach(function(f){ f.classList.toggle('on', f === fin); });
-    return;
-  }
-
   var qb = t.closest('[data-q]');
   if (qb){ bumpQty(qb.dataset.key, parseInt(qb.dataset.q, 10)); return; }
 
@@ -283,9 +272,9 @@ document.addEventListener('click', function(e){
   if (t.closest('#drawerClose')){ closeDrawer(); return; }
   if (t.closest('#mClose')){ closeModal(); return; }
   if (t.closest('#scrim')){ closeDrawer(); closeModal(); return; }
-  if (t.closest('#mAdd')){ if (current){ add(current.id, currentFin); closeModal(); openDrawer(); } return; }
+  if (t.closest('#mAdd')){ if (current){ add(current.id); closeModal(); openDrawer(); } return; }
   if (t.closest('#checkoutBtn')){
-    toast(lang==='en' ? 'Demo store — no payment is taken.' : 'Tienda de demostración — no se cobra nada.');
+    toast(lang==='en' ? 'Demo checkout — the real shop is on Etsy.' : 'Pago de demostración — la tienda real está en Etsy.');
     return;
   }
   if (t.closest('#navToggle')){ $('#navLinks').classList.toggle('on'); return; }
@@ -302,11 +291,6 @@ $('#searchInput').addEventListener('input', function(e){
   render();
 });
 $('#sortSel').addEventListener('change', function(e){ sortBy = e.target.value; render(); });
-$('#newsForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  toast(lang==='en' ? 'You are on the list. Two emails a year, promised.' : 'Ya estás en la lista. Dos emails al año, prometido.');
-  e.target.reset();
-});
 document.addEventListener('keydown', function(e){
   if (e.key === 'Escape'){ closeModal(); closeDrawer(); }
 });

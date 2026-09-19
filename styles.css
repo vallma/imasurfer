@@ -289,7 +289,10 @@ ul{margin:0;padding:0;list-style:none}
   transition:transform .25s,border-color .25s,box-shadow .25s
 }
 .pcard:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:var(--shadow)}
-.p-media{position:relative;aspect-ratio:4/3.2;max-width:100%;background:var(--bg-3);display:grid;place-items:center}
+.p-media{position:relative;aspect-ratio:4/3.2;max-width:100%;background:var(--bg-3);display:grid;place-items:center;overflow:hidden}
+/* Product photo sits over the line drawing; onerror removes it and the
+   drawing underneath becomes the image. */
+.p-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .p-media svg{width:82%;height:82%}
 .p-tags{position:absolute;top:11px;left:11px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
 .tag{
@@ -417,12 +420,12 @@ ul{margin:0;padding:0;list-style:none}
 .drawer-head h3{font-size:1.05rem}
 .x{border:0;background:none;cursor:pointer;color:var(--ink-3);display:flex;padding:4px}
 .ship-bar{padding:14px 20px;border-bottom:1px solid var(--line-2)}
-.ship-bar p{font-size:.76rem;color:var(--ink-3);margin-bottom:8px}
-.ship-track{height:4px;border-radius:999px;background:var(--line-2);overflow:hidden}
+.ship-bar p{font-size:.76rem;color:var(--ink-3)}
+.ship-track{display:none}
 .ship-fill{height:100%;background:var(--acc);width:0;transition:width .4s}
 .drawer-body{flex:1;overflow-y:auto;padding:14px 20px}
 .citem{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line-2)}
-.citem-img{width:64px;height:64px;border-radius:9px;background:var(--bg-3);display:grid;place-items:center;flex:none}
+.citem-img{position:relative;overflow:hidden;width:64px;height:64px;border-radius:9px;background:var(--bg-3);display:grid;place-items:center;flex:none}
 .citem-img svg{width:80%;height:80%}
 .citem-info{flex:1;min-width:0}
 .citem-info b{display:block;font-size:.9rem}
@@ -453,7 +456,7 @@ ul{margin:0;padding:0;list-style:none}
   box-shadow:var(--shadow);transform:translateY(14px);transition:transform .3s
 }
 .modal.on .modal-card{transform:none}
-.m-media{background:var(--bg-3);display:grid;place-items:center;min-height:280px;padding:24px}
+.m-media{position:relative;overflow:hidden;background:var(--bg-3);display:grid;place-items:center;min-height:280px;padding:24px}
 .m-media svg{width:100%;max-width:330px;height:auto}
 .m-body{padding:28px;position:relative}
 .m-close{position:absolute;top:16px;right:16px;border:1px solid var(--line);background:var(--bg-2);border-radius:999px;padding:6px;cursor:pointer;color:var(--ink-3);display:flex}
