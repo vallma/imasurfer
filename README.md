@@ -34,8 +34,8 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-Paths in `index.html` are absolute (`/styles.css`), so serve the folder
-rather than opening the file directly.
+Paths are relative, so the site also works from a subfolder — which is
+what GitHub Pages serves it from.
 
 ## Editing the catalogue
 
